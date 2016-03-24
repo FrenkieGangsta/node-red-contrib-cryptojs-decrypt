@@ -1,0 +1,1 @@
+[{"id":"e3535e3b.e0e4a","type":"function","z":"7a0cd03f.7817c","name":"Decode message","func":"// Decode the base64 data\nvar data = new Buffer( msg.decrypted, \"hex\").toString();\n\nmsg.message = data;\nconsole.log(msg.message);\nreturn msg;","outputs":1,"noerr":0,"x":770.1666717529297,"y":272.24998474121094,"wires":[["eacd0182.39acd"]]}]
