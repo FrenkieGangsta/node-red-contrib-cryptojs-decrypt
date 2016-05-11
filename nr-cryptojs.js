@@ -48,28 +48,28 @@ module.exports = function(RED) {
 			return obj;
 
 		}
-        // Do whatever you need to do in here - declare callbacks etc
-        // Note: this sample doesn't do anything much - it will only send
-        // this message once at startup...
-        // Look at other real nodes for some better ideas of what to do....
+        	// Do whatever you need to do in here - declare callbacks etc
+	        // Note: this sample doesn't do anything much - it will only send
+       		// this message once at startup...
+       		// Look at other real nodes for some better ideas of what to do....
 		// respond to inputs....
-        this.on('input', function (msg) {
-            	//node.warn("I saw a payload: "+msg.payload.rawData);
+        	this.on('input', function (msg) {
+            		//node.warn("I saw a payload: "+msg.payload.rawData);
 
-		var obj = deCrypt( msg.payload.rawData, this.key, this.iv);;
-		msg.decrypted = obj.data;
-            	node.send(msg);
-        });
+			var obj = deCrypt( msg.payload.rawData, this.key, this.iv);;
+			msg.decrypted = obj.data;
+            		node.send(msg);
+        	});
 
-        this.on("close", function() {
-            // Called when the node is shutdown - eg on redeploy.
-            // Allows ports to be closed, connections dropped etc.
-            // eg: node.client.disconnect();
-        });
-    }
+        	this.on("close", function() {
+            		// Called when the node is shutdown - eg on redeploy.
+            		// Allows ports to be closed, connections dropped etc.
+            		// eg: node.client.disconnect();
+        	});
+	}
 
-    // Register the node by name. This must be called before overriding any of the
-    // Node functions.
-    RED.nodes.registerType("cryptojs",cryptojsDecryptNode);
+	// Register the node by name. This must be called before overriding any of the
+	// Node functions.
+	RED.nodes.registerType("cryptojs",cryptojsDecryptNode);
 
 }
