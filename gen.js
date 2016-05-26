@@ -6,7 +6,7 @@ var message = "this is the message that we want to be encrypted.";
 // The AES encryption/decription key to be used.
 var AESKey = '2B7E151628AED2A6ABF7158809CF4F3C';
 
-message=message.toString("base64");
+message=new Buffer(message).toString("base64");
 
 // Encrypt
 var ciphertext = CryptoJS.AES.encrypt(message, AESKey );
@@ -19,6 +19,8 @@ console.log("Copy the above cipher text to the Node-Red Dummy message node, and 
 console.log(" ");
 console.log(" ");
 console.log("Let's decrypt: ");
+
+ciphertext='U2FsdGVkX185evptPg8xRLoe7NmMoO++K4rd8K8BFM7btrmREGCI6t0oKpRoZYZO';
 
 // Decrypt
 var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), AESKey );
